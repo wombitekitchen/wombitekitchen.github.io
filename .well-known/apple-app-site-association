@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8VGZRKN92F.com.boris.wombitekitchen",
+        "paths": [
+          "/recipe/*",
+          "/r/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "8VGZRKN92F.com.boris.wombitekitchen"
+    ]
+  }
+}
