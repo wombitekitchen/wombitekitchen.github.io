@@ -4,71 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – Wombite Kitchen</title>
-  <meta name="description" content="Datenschutzerklärung der App Wombite Kitchen.">
-  <meta name="theme-color" content="#4CAF50">
-  <link rel="icon" type="image/png" href="icon.png">
   <style>
+    :root { --bg: #FFFDF7; --text: #2C2C2C; --accent: #A67C52; --muted: #6B6B6B; --border: #E8E0D4; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #fafaf5;
-      color: #2d2d2d;
-      line-height: 1.7;
-      padding: 2rem 1rem;
-    }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 16px;
-      padding: 2.5rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    h1 {
-      font-size: 1.8rem;
-      color: #2e7d32;
-      margin-bottom: 0.5rem;
-    }
-    .date {
-      color: #888;
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-    }
-    h2 {
-      font-size: 1.15rem;
-      color: #333;
-      margin-top: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    p, li {
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-    }
-    a { color: #2e7d32; }
-    .back {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      color: #2e7d32;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-    .back:hover { text-decoration: underline; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding: 2rem 1rem; }
+    .container { max-width: 720px; margin: 0 auto; }
+    .logo { text-align: center; margin-bottom: 2rem; }
+    .logo span { font-size: 2rem; }
+    .logo h1 { font-size: 1.1rem; color: var(--accent); font-weight: 600; letter-spacing: 0.02em; }
+    h2 { font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text); }
+    .date { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; color: var(--accent); }
+    p, li { margin-bottom: 0.5rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.85rem; }
+    .nav { text-align: center; margin-bottom: 2rem; font-size: 0.9rem; }
+    .nav a { margin: 0 0.75rem; }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="/" class="back">← Zurück zur Startseite</a>
-    <h1>Datenschutzerklärung</h1>
+    <div class="logo">
+      <span>🐻</span>
+      <h1>Wombite Kitchen</h1>
+    </div>
+    <nav class="nav">
+      <a href="privacy.html"><strong>Datenschutz</strong></a>
+      <a href="terms.html">Nutzungsbedingungen</a>
+      <a href="imprint.html">Impressum</a>
+    </nav>
+
+    <h2>Datenschutzerklärung</h2>
     <p class="date">Stand: Februar 2026</p>
 
-    <h2>1. Verantwortlicher</h2>
+    <h3>1. Verantwortlicher</h3>
     <p>Wombite Kitchen<br>E-Mail: <a href="mailto:info@wombitekitchen.com">info@wombitekitchen.com</a></p>
 
-    <h2>2. Welche Daten wir erheben</h2>
+    <h3>2. Welche Daten wir erheben</h3>
     <p>Wombite Kitchen erhebt und verarbeitet folgende Daten:</p>
     <ul>
       <li>Lokale Profildaten (Name, E-Mail-Adresse), die du selbst eingibst</li>
@@ -78,7 +52,7 @@
       <li>Bei Nutzung des Online-Kontos: E-Mail-Adresse und verschlüsseltes Passwort</li>
     </ul>
 
-    <h2>3. Rechtsgrundlage</h2>
+    <h3>3. Rechtsgrundlage</h3>
     <p>Die Verarbeitung deiner Daten erfolgt auf Grundlage von:</p>
     <ul>
       <li>Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung – Bereitstellung der App-Funktionen)</li>
@@ -87,7 +61,7 @@
     </ul>
     <p>Für Nutzer in der Schweiz gilt ergänzend das Schweizer Datenschutzgesetz (DSG).</p>
 
-    <h2>4. Zweck der Datenverarbeitung</h2>
+    <h3>4. Zweck der Datenverarbeitung</h3>
     <p>Deine Daten werden ausschließlich für folgende Zwecke verarbeitet:</p>
     <ul>
       <li>Bereitstellung der App-Funktionen (Rezeptverwaltung, Einkaufslisten, Kochmodus)</li>
@@ -96,7 +70,7 @@
       <li>Verbesserung der App-Funktionalität und Fehlerbehebung</li>
     </ul>
 
-    <h2>5. Datenspeicherung und Speicherdauer</h2>
+    <h3>5. Datenspeicherung und Speicherdauer</h3>
     <ul>
       <li>Lokale Daten werden ausschließlich auf deinem Gerät gespeichert.</li>
       <li>Bei Nutzung des Online-Kontos werden Rezeptdaten auf Servern von Supabase (EU) gespeichert.</li>
@@ -105,24 +79,24 @@
       <li>Nach Löschung deines Kontos werden deine personenbezogenen Daten innerhalb von 30 Tagen gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</li>
     </ul>
 
-    <h2>6. Auftragsverarbeiter und Dienstleister</h2>
+    <h3>6. Auftragsverarbeiter und Dienstleister</h3>
     <p>Wir setzen technische Dienstleister als Auftragsverarbeiter gemäß Art. 28 DSGVO ein. Deine Daten werden nicht an Dritte verkauft oder zu Werbezwecken weitergegeben.</p>
     <p>Dienstleister, die wir zur Bereitstellung der App nutzen:</p>
     <ul>
       <li>Supabase (Datenbank und Authentifizierung, gehostet auf AWS in der EU)</li>
       <li>Resend (E-Mail-Versand für Kontobestätigungen, Server in der EU)</li>
-      <li>Sentry (Fehlerüberwachung und Crash-Reporting, gehostet in der EU/Frankfurt)</li>
-      <li>RevenueCat (In-App-Abonnementverwaltung; verarbeitet Nutzer-ID und Abo-Status)</li>
+      <li>Sentry (Fehlerüberwachung und Crash-Reporting, gehostet in der EU/Frankfurt; erfasst anonymisierte Absturzberichte und Geräte-Metadaten zur Fehlerbehebung)</li>
+      <li>RevenueCat (In-App-Abonnementverwaltung; verarbeitet Nutzer-ID und Abo-Status zur Bereitstellung von Premium-Funktionen)</li>
       <li>Google Fonts (Schriftarten, keine personenbezogenen Daten)</li>
     </ul>
 
-    <h2>7. Tracking und Analyse</h2>
+    <h3>7. Tracking und Analyse</h3>
     <p>Es erfolgt kein Tracking zu Werbezwecken. Wir nutzen keine Analyse-Tools, die personenbezogene Daten zu Marketing- oder Werbezwecken erfassen. Sentry wird ausschließlich zur technischen Fehlerbehebung eingesetzt.</p>
 
-    <h2>8. Minderjährige</h2>
-    <p>Die App richtet sich nicht an Kinder unter 16 Jahren. Wir erheben wissentlich keine Daten von Minderjährigen unter 16 Jahren.</p>
+    <h3>8. Minderjährige</h3>
+    <p>Die App richtet sich nicht an Kinder unter 16 Jahren. Wir erheben wissentlich keine Daten von Minderjährigen unter 16 Jahren. Sollten wir Kenntnis davon erlangen, werden die betreffenden Daten umgehend gelöscht.</p>
 
-    <h2>9. Deine Rechte</h2>
+    <h3>9. Deine Rechte</h3>
     <p>Du hast jederzeit das Recht auf:</p>
     <ul>
       <li>Auskunft über deine gespeicherten Daten</li>
@@ -134,14 +108,18 @@
     </ul>
     <p>Zur Ausübung deiner Rechte wende dich an <a href="mailto:info@wombitekitchen.com">info@wombitekitchen.com</a>. Du hast zudem das Recht, eine Beschwerde bei einer Datenschutzaufsichtsbehörde einzureichen.</p>
 
-    <h2>10. Datensicherheit</h2>
+    <h3>10. Datensicherheit</h3>
     <p>Wir setzen technische und organisatorische Maßnahmen ein, um deine Daten zu schützen. Die Übertragung erfolgt verschlüsselt (TLS/SSL).</p>
 
-    <h2>11. Kontakt</h2>
+    <h3>11. Kontakt</h3>
     <p>Bei Fragen zum Datenschutz wende dich an:<br><a href="mailto:info@wombitekitchen.com">info@wombitekitchen.com</a></p>
 
-    <h2>12. Änderungen</h2>
-    <p>Diese Datenschutzerklärung kann aktualisiert werden. Die aktuelle Version findest du stets in der App und auf dieser Seite.</p>
+    <h3>12. Änderungen</h3>
+    <p>Diese Datenschutzerklärung kann aktualisiert werden. Die aktuelle Version findest du stets in der App.</p>
+
+    <div class="footer">
+      <p>&copy; 2026 Wombite Kitchen &middot; <a href="mailto:info@wombitekitchen.com">info@wombitekitchen.com</a></p>
+    </div>
   </div>
 </body>
 </html>
