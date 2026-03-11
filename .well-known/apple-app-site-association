@@ -5,6 +5,7 @@
       {
         "appID": "8VGZRKN92F.com.boris.wombitekitchen",
         "paths": [
+          "/invite/*",
           "/recipe/*",
           "/r/*"
         ]
