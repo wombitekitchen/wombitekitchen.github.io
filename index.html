@@ -786,6 +786,34 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // --- UTM Tracking: Store-Links mit Campaign-Parametern anreichern ---
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const source = params.get('utm_source');
+      const medium = params.get('utm_medium');
+      const campaign = params.get('utm_campaign');
+
+      if (!source && !medium && !campaign) return;
+
+      // Apple Campaign Token (ct) – max 40 Zeichen
+      const ct = [source, medium, campaign].filter(Boolean).join('_').substring(0, 40);
+
+      document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(a) {
+        var url = new URL(a.href);
+        if (ct) url.searchParams.set('ct', ct);
+        url.searchParams.set('pt', '126584103');
+        a.href = url.toString();
+      });
+
+      document.querySelectorAll('a[href*="play.google.com"]').forEach(function(a) {
+        var url = new URL(a.href);
+        if (source) url.searchParams.set('utm_source', source);
+        if (medium) url.searchParams.set('utm_medium', medium);
+        if (campaign) url.searchParams.set('utm_campaign', campaign);
+        a.href = url.toString();
+      });
+    })();
   </script>
 
 </body>
