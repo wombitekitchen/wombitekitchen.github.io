@@ -3,8 +3,10 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.boris.wombitekitchen",
-      "sha256_cert_fingerprints": ["TODO:ADD_YOUR_SHA256_FINGERPRINT"]
+      "package_name": "com.wombite.app",
+      "sha256_cert_fingerprints": [
+        "C0:C7:D5:E9:61:52:0F:4C:2A:71:F1:22:80:70:68:B6:8B:FC:A8:2D:40:65:58:D7:E1:C2:CF:8E:99:D1:D5:9C"
+      ]
     }
   }
 ]
