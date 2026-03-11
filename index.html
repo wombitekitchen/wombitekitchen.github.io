@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wombite Kitchen – Deine Koch-App</title>
-  <meta name="description" content="Wombite Kitchen: Rezepte erstellen, teilen und entdecken. KI-Import, Community, Einkaufslisten und mehr.">
+  <title>Wombite Kitchen – Alle deine Rezepte an einem Ort</title>
+  <meta name="description" content="Wombite Kitchen: Rezepte speichern, Kochbücher erstellen und Einkaufslisten automatisch generieren. Deine Koch-App für iOS und Android.">
   <meta name="theme-color" content="#4CAF50">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Wombite Kitchen">
-  <meta property="og:description" content="Rezepte erstellen, teilen und entdecken. Mit KI-Import, Community und Einkaufslisten.">
+  <meta property="og:title" content="Wombite Kitchen – Alle deine Rezepte an einem Ort">
+  <meta property="og:description" content="Rezepte speichern, Kochbücher erstellen und Einkaufslisten automatisch generieren. Mit KI-Import und Community.">
   <meta property="og:image" content="https://wombitekitchen.com/og-image.png">
   <meta property="og:url" content="https://wombitekitchen.com">
   <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Wombite Kitchen">
-  <meta name="twitter:description" content="Rezepte erstellen, teilen und entdecken.">
+  <meta name="twitter:description" content="Rezepte speichern, Kochbücher erstellen und Einkaufslisten automatisch generieren.">
   <meta name="twitter:image" content="https://wombitekitchen.com/og-image.png">
 
   <!-- Favicon -->
@@ -25,25 +25,26 @@
   <link rel="apple-touch-icon" href="icon.png">
 
   <!-- Smart App Banner (iOS) -->
-  <meta name="apple-itunes-app" content="app-id=DEINE_APP_ID">
+  <meta name="apple-itunes-app" content="app-id=6738030818">
 
   <style>
     :root {
       --primary: #4CAF50;
       --primary-dark: #388E3C;
+      --primary-light: #E8F5E9;
       --accent: #FF6D00;
+      --accent-light: #FFF3E0;
       --bg: #FAFAF8;
       --text: #1A1A1A;
       --text-muted: #666;
       --card-bg: #FFFFFF;
+      --border: #F0F0F0;
       --radius: 20px;
+      --radius-sm: 14px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -53,7 +54,20 @@
       overflow-x: hidden;
     }
 
-    /* Hero */
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 3rem;
+    }
+
+    /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -69,10 +83,8 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
       background: radial-gradient(circle at 30% 20%, rgba(76,175,80,0.08) 0%, transparent 50%),
                   radial-gradient(circle at 70% 80%, rgba(255,109,0,0.06) 0%, transparent 50%);
       animation: float 20s ease-in-out infinite;
@@ -90,8 +102,7 @@
     }
 
     .app-icon {
-      width: 120px;
-      height: 120px;
+      width: 120px; height: 120px;
       border-radius: 28px;
       box-shadow: 0 12px 40px rgba(76,175,80,0.25);
       margin-bottom: 2rem;
@@ -133,7 +144,7 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.9rem 2rem;
-      border-radius: 14px;
+      border-radius: var(--radius-sm);
       font-size: 1.05rem;
       font-weight: 600;
       text-decoration: none;
@@ -142,55 +153,77 @@
       border: none;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      box-shadow: 0 4px 16px rgba(76,175,80,0.3);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(76,175,80,0.4);
-    }
-
     .btn-dark {
       background: #1A1A1A;
       color: white;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     }
-
     .btn-dark:hover {
       background: #333;
       transform: translateY(-2px);
       box-shadow: 0 6px 24px rgba(0,0,0,0.3);
     }
 
-    .btn svg {
-      width: 20px;
-      height: 20px;
+    .btn-outline {
+      background: white;
+      color: var(--text);
+      border: 2px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
     }
 
-    .coming-soon {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 0.9rem;
+    .btn svg { width: 20px; height: 20px; }
+
+    /* ===== PROBLEM / LÖSUNG ===== */
+    .problem {
+      padding: 5rem 2rem;
+      background: var(--card-bg);
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .pain-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .pain-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pain-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pain-card p {
       color: var(--text-muted);
-      font-style: italic;
+      font-size: 0.95rem;
     }
 
-    /* Features */
+    .solution-text {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ===== FEATURES ===== */
     .features {
       padding: 5rem 2rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .features h2 {
-      text-align: center;
-      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-      font-weight: 700;
-      margin-bottom: 3rem;
     }
 
     .features-grid {
@@ -203,7 +236,7 @@
       background: var(--card-bg);
       border-radius: var(--radius);
       padding: 2rem;
-      border: 1px solid #F0F0F0;
+      border: 1px solid var(--border);
       transition: all 0.2s ease;
     }
 
@@ -229,7 +262,211 @@
       line-height: 1.5;
     }
 
-    /* CTA Banner */
+    /* ===== SCREENSHOTS ===== */
+    .screenshots {
+      padding: 5rem 2rem;
+      background: var(--card-bg);
+      overflow: hidden;
+    }
+
+    .screenshot-scroll {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 1rem 0 2rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshot-scroll::-webkit-scrollbar { display: none; }
+
+    .phone-frame {
+      flex-shrink: 0;
+      width: 200px;
+      height: 400px;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    /* ===== SOCIAL PROOF ===== */
+    .social-proof {
+      padding: 5rem 2rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .stars {
+      color: #F5A623;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-card .quote {
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .testimonial-author {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      padding: 5rem 2rem;
+      background: var(--card-bg);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .pricing-card.highlighted {
+      border: 2px solid var(--primary);
+      box-shadow: 0 8px 30px rgba(76,175,80,0.12);
+      background: var(--card-bg);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .price-period {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .price-alt {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      text-align: left;
+      margin-top: 1.5rem;
+    }
+
+    .pricing-card ul li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .pricing-card ul li:last-child { border-bottom: none; }
+
+    .pricing-card ul li::before {
+      content: "\2713  ";
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ===== FAQ ===== */
+    .faq {
+      padding: 5rem 2rem;
+    }
+
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 300;
+    }
+
+    .faq-item[open] summary::after { content: "\2212"; }
+
+    .faq-item p {
+      padding: 0 1.5rem 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== CTA BOTTOM ===== */
     .cta-section {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
@@ -256,30 +493,46 @@
       color: var(--primary-dark);
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     }
-
     .btn-white:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 24px rgba(0,0,0,0.2);
     }
 
-    /* Footer */
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       color: var(--text-muted);
       font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
     footer a {
-      color: var(--primary);
+      color: var(--text-muted);
       text-decoration: none;
+      font-size: 0.9rem;
     }
 
     footer a:hover {
-      text-decoration: underline;
+      color: var(--primary);
     }
 
-    /* Animations on scroll */
+    /* ===== ANIMATIONS ===== */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -290,76 +543,240 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .pain-grid,
+      .features-grid,
+      .testimonial-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-frame {
+        width: 160px;
+        height: 320px;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-content">
       <img src="icon.png" alt="Wombite Kitchen App Icon" class="app-icon">
       <h1>Wombite Kitchen</h1>
-      <p class="tagline">Rezepte erstellen, teilen und gemeinsam entdecken.</p>
+      <p class="tagline">Alle deine Rezepte an einem Ort &ndash; speichern, organisieren und teilen.</p>
       <div class="cta-group">
-        <a href="#" class="btn btn-dark" id="appstore-btn">
+        <a href="https://apps.apple.com/app/wombite-kitchen/id6738030818" class="btn btn-dark">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Im App Store laden
+          App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.wombite.app" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c-.36-.17-.58-.54-.58-.96V1.2c0-.42.22-.79.58-.96l11.07 11.76L3.18 23.76zm.82-22.4L15.12 12 4 22.64V1.36zM20.16 10.33l-3.46 2L13.14 12l3.56-3.77 3.46 2c.76.43.76 1.67 0 2.1zm-4.46-1.4L13.68 12l2.02 2.14L17.86 12l-2.16-3.07zM5.1.56l10.18 5.88L13.14 12 5.1.56z"/></svg>
+          Google Play
         </a>
       </div>
-      <span class="coming-soon">Bald verf&uuml;gbar im App Store &amp; Google Play</span>
     </div>
   </section>
 
+  <!-- ===== PROBLEM / LÖSUNG ===== -->
+  <section class="problem">
+    <div class="section-inner">
+      <h2 class="section-title">Kennst du das?</h2>
+      <div class="pain-grid">
+        <div class="pain-card fade-in">
+          <div class="pain-emoji">📱</div>
+          <h3>Rezepte &uuml;berall verstreut</h3>
+          <p>Screenshots, Notizen, Lesezeichen, Papier &ndash; nichts ist da, wenn du es brauchst.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-emoji">📋</div>
+          <h3>Einkaufen ist umst&auml;ndlich</h3>
+          <p>Zutaten abtippen, Mengen umrechnen, Liste vergessen &ndash; jedes Mal das gleiche.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-emoji">🤷</div>
+          <h3>Keine Organisation</h3>
+          <p>100 gespeicherte Rezepte, aber du findest nie das richtige.</p>
+        </div>
+      </div>
+      <p class="solution-text fade-in">Wombite Kitchen vereint alles in einer App.</p>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
   <section class="features">
-    <h2>Was Wombite Kitchen kann</h2>
-    <div class="features-grid">
-      <div class="feature-card fade-in">
-        <div class="feature-emoji">🤖</div>
-        <h3>KI-Rezeptimport</h3>
-        <p>Foto oder Link einfach abfotografieren oder einf&uuml;gen &ndash; die KI erstellt dein Rezept automatisch.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-emoji">👨‍🍳</div>
-        <h3>Community</h3>
-        <p>Teile deine Kreationen, entdecke Rezepte anderer und lass dich inspirieren.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-emoji">📚</div>
-        <h3>Kochb&uuml;cher</h3>
-        <p>Organisiere deine Rezepte in eigenen Kochb&uuml;chern &ndash; genau so, wie du es m&ouml;chtest.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-emoji">🛒</div>
-        <h3>Einkaufslisten</h3>
-        <p>Zutaten direkt aus dem Rezept auf die Einkaufsliste &ndash; mit einem Tap.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-emoji">🍳</div>
-        <h3>Kochmodus</h3>
-        <p>Schritt-f&uuml;r-Schritt kochen mit gro&szlig;er Ansicht &ndash; perfekt f&uuml;r die K&uuml;che.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-emoji">☁️</div>
-        <h3>Cloud-Sync</h3>
-        <p>Deine Rezepte sind sicher gespeichert und auf allen Ger&auml;ten verf&uuml;gbar.</p>
+    <div class="section-inner">
+      <h2 class="section-title">Was Wombite Kitchen kann</h2>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-emoji">🤖</div>
+          <h3>KI-Rezeptimport</h3>
+          <p>URL eingeben oder Foto machen &ndash; die KI erkennt Zutaten, Schritte und mehr automatisch.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-emoji">📚</div>
+          <h3>Kochb&uuml;cher</h3>
+          <p>Organisiere deine Rezepte in eigenen Kochb&uuml;chern &ndash; genau so, wie du es m&ouml;chtest.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-emoji">🛒</div>
+          <h3>Einkaufslisten</h3>
+          <p>Zutaten direkt aus dem Rezept auf die Einkaufsliste &ndash; mit einem Tap.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-emoji">👨‍🍳</div>
+          <h3>Community</h3>
+          <p>Teile deine Kreationen, entdecke Rezepte anderer und lass dich inspirieren.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-emoji">🍳</div>
+          <h3>Kochmodus</h3>
+          <p>Schritt-f&uuml;r-Schritt kochen mit gro&szlig;er Ansicht &ndash; perfekt f&uuml;r die K&uuml;che.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-emoji">☁️</div>
+          <h3>Cloud-Sync</h3>
+          <p>Deine Rezepte sind sicher gespeichert und auf allen Ger&auml;ten verf&uuml;gbar.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cta-section">
-    <h2>Deine Rezepte, deine Community</h2>
-    <p>Erstelle, organisiere und teile deine Lieblingsrezepte &ndash; alles in einer App.</p>
-    <a href="#" class="btn btn-white" id="appstore-btn-bottom">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      Im App Store laden
-    </a>
+  <!-- ===== SCREENSHOTS ===== -->
+  <section class="screenshots">
+    <div class="section-inner">
+      <h2 class="section-title">So sieht Wombite Kitchen aus</h2>
+      <div class="screenshot-scroll">
+        <div class="phone-frame">Rezeptansicht</div>
+        <div class="phone-frame">Kochb&uuml;cher</div>
+        <div class="phone-frame">Einkaufsliste</div>
+        <div class="phone-frame">KI-Import</div>
+        <div class="phone-frame">Community</div>
+      </div>
+    </div>
   </section>
 
+  <!-- ===== SOCIAL PROOF ===== -->
+  <section class="social-proof">
+    <div class="section-inner">
+      <h2 class="section-title">Was unsere Nutzer sagen</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card fade-in">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&laquo;Endlich habe ich alle meine Rezepte an einem Ort. Die Einkaufsliste spart mir so viel Zeit!&raquo;</p>
+          <span class="testimonial-author">&ndash; Nutzerbewertung</span>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&laquo;Der KI-Import ist genial. URL eingeben, fertig. Funktioniert sogar mit Fotos von Omas Rezeptbuch.&raquo;</p>
+          <span class="testimonial-author">&ndash; Nutzerbewertung</span>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&laquo;Endlich eine Rezept-App die nicht &uuml;berladen ist. Genau was ich gebraucht habe.&raquo;</p>
+          <span class="testimonial-author">&ndash; Nutzerbewertung</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="pricing">
+    <div class="section-inner">
+      <h2 class="section-title">Kostenlos starten, jederzeit upgraden</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-in">
+          <h3>Kostenlos</h3>
+          <p class="price">0 &euro;</p>
+          <p class="price-alt">F&uuml;r immer</p>
+          <ul>
+            <li>Rezepte speichern</li>
+            <li>Einkaufslisten</li>
+            <li>1 Kochbuch</li>
+            <li>Offline verf&uuml;gbar</li>
+          </ul>
+        </div>
+        <div class="pricing-card highlighted fade-in">
+          <div class="pricing-badge">Beliebt</div>
+          <h3>Wombite+</h3>
+          <p class="price">39,99 &euro;<span class="price-period"> / Jahr</span></p>
+          <p class="price-alt">oder 4,99 &euro; / Monat</p>
+          <ul>
+            <li>Alles aus Kostenlos</li>
+            <li>Unbegrenzte Kochb&uuml;cher</li>
+            <li>KI-Import (URL, Foto, PDF)</li>
+            <li>Cloud Sync</li>
+            <li>Rezepte teilen</li>
+            <li>Community-Features</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq">
+    <div class="section-inner">
+      <h2 class="section-title">H&auml;ufige Fragen</h2>
+      <div class="faq-list">
+        <details class="faq-item fade-in">
+          <summary>Ist Wombite Kitchen kostenlos?</summary>
+          <p>Ja! Die Grundfunktionen sind kostenlos. Mit Wombite+ bekommst du zus&auml;tzliche Features wie KI-Import, Cloud Sync und unbegrenzte Kochb&uuml;cher.</p>
+        </details>
+        <details class="faq-item fade-in">
+          <summary>Funktioniert die App offline?</summary>
+          <p>Ja, alle deine Rezepte sind lokal gespeichert und jederzeit ohne Internet verf&uuml;gbar.</p>
+        </details>
+        <details class="faq-item fade-in">
+          <summary>Wie kann ich Rezepte importieren?</summary>
+          <p>Du kannst Rezepte per URL (Link einf&uuml;gen), Foto (Kamera oder Galerie), PDF oder manuell hinzuf&uuml;gen. Die KI erkennt Zutaten, Schritte und mehr automatisch.</p>
+        </details>
+        <details class="faq-item fade-in">
+          <summary>Gibt es Cloud Sync?</summary>
+          <p>Ja, mit Wombite+ werden deine Rezepte automatisch zwischen all deinen Ger&auml;ten synchronisiert.</p>
+        </details>
+        <details class="faq-item fade-in">
+          <summary>F&uuml;r welche Plattformen ist die App verf&uuml;gbar?</summary>
+          <p>Wombite Kitchen gibt es f&uuml;r iOS (iPhone &amp; iPad) und Android.</p>
+        </details>
+        <details class="faq-item fade-in">
+          <summary>Kann ich mein Abo jederzeit k&uuml;ndigen?</summary>
+          <p>Ja, du kannst Wombite+ jederzeit &uuml;ber den App Store oder Google Play k&uuml;ndigen. Es gibt keine versteckten Kosten.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BOTTOM ===== -->
+  <section class="cta-section">
+    <h2>Bereit, deine Rezepte zu organisieren?</h2>
+    <p>Lade Wombite Kitchen jetzt kostenlos herunter.</p>
+    <div class="cta-buttons">
+      <a href="https://apps.apple.com/app/wombite-kitchen/id6738030818" class="btn btn-white">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.wombite.app" class="btn btn-white" style="color: var(--primary-dark);">
+        Google Play
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 Wombite Kitchen &middot; Made with 🧡</p>
+    <div class="footer-links">
+      <a href="imprint.html">Impressum</a>
+      <a href="privacy.html">Datenschutz</a>
+      <a href="terms.html">AGB</a>
+      <a href="mailto:info@wombitekitchen.com">Kontakt</a>
+    </div>
+    <p>&copy; 2026 Wombite Kitchen &middot; Made with &#10084;&#65039; in Switzerland</p>
   </footer>
 
   <script>
-    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
