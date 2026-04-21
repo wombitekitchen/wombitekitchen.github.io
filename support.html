@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support – Wombite Kitchen</title>
-  <meta name="theme-color" content="#FDEDC7">
+  <meta name="theme-color" content="#F4EDDC">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 
   <style>
     :root {
-      --wombite-beige: #FDEDC7;
+      --wombite-beige: #F4EDDC;
       --wombite-green: #8AA87B;
       --wombite-green-dark: #5F7A52;
       --wombite-text: #2B2B2B;
@@ -32,13 +32,19 @@
     header.page-header a { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
     header.page-header img { width: 48px; height: 48px; }
     header.page-header h1 { font-size: 1.2rem; color: var(--wombite-green-dark); font-weight: 800; letter-spacing: -0.01em; }
-    main.container { max-width: 720px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+    main.container { max-width: 680px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
     h2 { font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 1.25rem; color: var(--wombite-green-dark); font-weight: 800; letter-spacing: -0.01em; }
-    h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.6rem; color: var(--wombite-green-dark); font-weight: 700; }
-    p, li { margin-bottom: 0.75rem; color: var(--wombite-text); }
+    h3 { font-size: 1.2rem; margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--wombite-green-dark); font-weight: 700; }
+    p { margin-bottom: 0.9rem; color: var(--wombite-text); font-size: 1.02rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    ul li { margin-bottom: 0.5rem; color: var(--wombite-text); }
     a { color: var(--wombite-green-dark); text-decoration: none; font-weight: 600; }
     a:hover { text-decoration: underline; }
     strong { font-weight: 700; }
+    .intro-lead {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
     footer { border-top: 1px solid var(--wombite-border); padding: 2rem 1.5rem; text-align: center; margin-top: 2rem; }
     footer nav { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
     footer nav a { color: var(--wombite-muted); font-size: 0.95rem; font-weight: 500; }
@@ -56,28 +62,22 @@
   </header>
 
   <main class="container">
-    <h2>Support</h2>
+    <h2>Brauchst du Hilfe?</h2>
 
-    <p>Du hast eine Frage, ein Problem oder Feedback? Wir helfen dir gerne weiter.</p>
+    <p class="intro-lead">Schreib einfach eine E-Mail an <a href="mailto:info@wombitekitchen.com">info@wombitekitchen.com</a> – es antwortet ein Mensch, meist innerhalb eines Werktags.</p>
 
-    <h3>Kontakt</h3>
-    <p>Schreib uns eine E-Mail an: <a href="mailto:support@wombitekitchen.com">support@wombitekitchen.com</a></p>
-    <p>Wir antworten in der Regel innerhalb von 24 Stunden.</p>
+    <p>Wenn du einen Fehler melden möchtest, hilft uns das weiter:</p>
+    <ul>
+      <li>Welches Gerät (iPhone, iPad, Android)?</li>
+      <li>Welche App-Version (findest du in den Einstellungen ganz unten)?</li>
+      <li>Was hast du versucht, und was ist stattdessen passiert?</li>
+    </ul>
 
     <h3>Häufige Fragen</h3>
-    <p><strong>Wie importiere ich ein Rezept?</strong><br>
-    Tippe auf das +-Symbol und wähle Link, Foto oder PDF. Wombite erkennt die Zutaten und Schritte automatisch.</p>
+    <p>Die wichtigsten Antworten findest du <a href="/#faq">in unseren FAQ</a> auf der Startseite.</p>
 
-    <p><strong>Wie teile ich ein Kochbuch?</strong><br>
-    Öffne das Kochbuch, tippe auf das Teilen-Symbol und sende den Einladungslink an deine Familie oder Freunde.</p>
-
-    <p><strong>Wie funktioniert die Einkaufsliste?</strong><br>
-    Öffne ein Rezept und tippe auf "Zur Einkaufsliste". Die Zutaten werden automatisch zusammengefasst. Teile die Liste mit deinem Haushalt.</p>
-
-    <p><strong>Meine Daten synchronisieren nicht.</strong><br>
-    Stelle sicher, dass du mit dem Internet verbunden bist. Ziehe die Seite nach unten, um die Synchronisation manuell auszulösen. Bei anhaltenden Problemen starte die App neu.</p>
-
-    <p>Weitere Fragen beantworten wir auf der <a href="/#faq">Startseite</a> oder direkt per E-Mail.</p>
+    <h3>Rechtliches</h3>
+    <p><a href="imprint.html">Impressum</a> · <a href="privacy.html">Datenschutz</a> · <a href="terms.html">AGB</a></p>
   </main>
 
   <footer>
@@ -86,7 +86,7 @@
       <a href="imprint.html">Impressum</a>
       <a href="privacy.html">Datenschutz</a>
       <a href="terms.html">AGB</a>
-      <a href="mailto:support@wombitekitchen.com">Kontakt</a>
+      <a href="mailto:info@wombitekitchen.com">Kontakt</a>
     </nav>
     <p class="copyright">© 2026 Wombite Kitchen · Made with ❤️ in Switzerland</p>
   </footer>
