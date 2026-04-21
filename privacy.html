@@ -4,38 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – Wombite Kitchen</title>
+  <meta name="theme-color" content="#FDEDC7">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root { --bg: #FFFDF7; --text: #2C2C2C; --accent: #A67C52; --muted: #6B6B6B; --border: #E8E0D4; }
+    :root {
+      --wombite-beige: #FDEDC7;
+      --wombite-green: #8AA87B;
+      --wombite-green-dark: #5F7A52;
+      --wombite-text: #2B2B2B;
+      --wombite-muted: #6B6B6B;
+      --wombite-border: rgba(43, 43, 43, 0.12);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding: 2rem 1rem; }
-    .container { max-width: 720px; margin: 0 auto; }
-    .logo { text-align: center; margin-bottom: 2rem; }
-    .logo span { font-size: 2rem; }
-    .logo h1 { font-size: 1.1rem; color: var(--accent); font-weight: 600; letter-spacing: 0.02em; }
-    h2 { font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text); }
-    .date { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
-    h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; color: var(--accent); }
-    p, li { margin-bottom: 0.5rem; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--wombite-beige);
+      color: var(--wombite-text);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+    header.page-header { text-align: center; padding: 2rem 1.5rem 1.5rem; }
+    header.page-header a { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+    header.page-header img { width: 48px; height: 48px; }
+    header.page-header h1 { font-size: 1.2rem; color: var(--wombite-green-dark); font-weight: 800; letter-spacing: -0.01em; }
+    main.container { max-width: 720px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 0.75rem; color: var(--wombite-green-dark); font-weight: 800; letter-spacing: -0.01em; }
+    h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.6rem; color: var(--wombite-green-dark); font-weight: 700; }
+    .date { color: var(--wombite-muted); font-size: 0.92rem; margin-bottom: 2rem; }
+    p, li { margin-bottom: 0.6rem; color: var(--wombite-text); }
     ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-    a { color: var(--accent); text-decoration: none; }
+    a { color: var(--wombite-green-dark); text-decoration: none; font-weight: 600; }
     a:hover { text-decoration: underline; }
-    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.85rem; }
-    .nav { text-align: center; margin-bottom: 2rem; font-size: 0.9rem; }
-    .nav a { margin: 0 0.75rem; }
+    footer { border-top: 1px solid var(--wombite-border); padding: 2rem 1.5rem; text-align: center; margin-top: 2rem; }
+    footer nav { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+    footer nav a { color: var(--wombite-muted); font-size: 0.95rem; font-weight: 500; }
+    footer nav a:hover { color: var(--wombite-green-dark); }
+    footer .copyright { color: var(--wombite-muted); font-size: 0.88rem; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <a href="/" style="text-decoration:none;color:inherit;"><h1>Wombite Kitchen</h1></a>
-    </div>
-    <nav class="nav">
-      <a href="privacy.html"><strong>Datenschutz</strong></a>
-      <a href="terms.html">Nutzungsbedingungen</a>
-      <a href="imprint.html">Impressum</a>
-      <a href="support.html">Support</a>
-    </nav>
 
+  <header class="page-header">
+    <a href="/">
+      <img src="icon.png" alt="Wombite Kitchen Logo">
+      <h1>Wombite Kitchen</h1>
+    </a>
+  </header>
+
+  <main class="container">
     <h2>Datenschutzerklärung</h2>
     <p class="date">Stand: Februar 2026</p>
 
@@ -116,10 +137,18 @@
 
     <h3>12. Änderungen</h3>
     <p>Diese Datenschutzerklärung kann aktualisiert werden. Die aktuelle Version findest du stets in der App.</p>
+  </main>
 
-    <div class="footer">
-      <p>&copy; 2026 Wombite Kitchen &middot; <a href="mailto:info@wombitekitchen.com">info@wombitekitchen.com</a></p>
-    </div>
-  </div>
+  <footer>
+    <nav>
+      <a href="/">Startseite</a>
+      <a href="imprint.html">Impressum</a>
+      <a href="terms.html">AGB</a>
+      <a href="support.html">Support</a>
+      <a href="mailto:info@wombitekitchen.com">Kontakt</a>
+    </nav>
+    <p class="copyright">© 2026 Wombite Kitchen · Made with ❤️ in Switzerland</p>
+  </footer>
+
 </body>
 </html>
