@@ -271,44 +271,145 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    .price-card {
+    .pricing-card {
       background: var(--wombite-card);
       border: 1px solid var(--wombite-border);
       border-radius: var(--radius);
-      padding: 2rem 1.5rem;
+      padding: 2rem 1.5rem 1.5rem;
       display: flex;
       flex-direction: column;
       position: relative;
     }
 
-    .price-card.featured {
+    .pricing-card--featured {
       border: 2px solid var(--wombite-green-dark);
       background: rgba(255, 255, 255, 0.7);
     }
 
+    /* "Beliebt"-Badge oben zentriert */
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--wombite-green-dark);
+      color: #FFF;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      z-index: 2;
+    }
+
+    /* Gründerpreis-Chip oben rechts */
     .founder-chip {
+      position: absolute;
+      top: 16px;
+      right: 16px;
       display: inline-block;
       padding: 4px 12px;
       background-color: var(--wombite-green);
       color: #FFF;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       border-radius: 999px;
       letter-spacing: 0.02em;
-      margin-bottom: 0.75rem;
-      align-self: flex-start;
+      z-index: 1;
     }
 
-    .founder-hint {
-      font-size: 0.82rem;
+    .pricing-header h3 {
+      color: var(--wombite-green-dark);
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-subtitle {
+      font-size: 0.9rem;
       color: var(--wombite-muted);
-      margin-top: 0.5rem;
       margin-bottom: 1.25rem;
+    }
+
+    .pricing-price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-price .price-main {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--wombite-green-dark);
+      line-height: 1.1;
+    }
+
+    .pricing-price .price-period {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--wombite-muted);
+      margin-top: 0.25rem;
+    }
+
+    .pricing-price .price-regular,
+    .pricing-price .price-alt {
+      font-size: 0.88rem;
+      color: var(--wombite-muted);
+    }
+
+    .pricing-price .price-regular s {
+      color: #9a9a9a;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem;
+      flex: 1;
+    }
+
+    .pricing-features li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
       line-height: 1.45;
+      color: var(--wombite-text);
+    }
+
+    .pricing-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--wombite-green);
+    }
+
+    .pricing-footer {
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--wombite-border);
+    }
+
+    .pricing-trial {
+      font-size: 0.875rem;
+      color: var(--wombite-muted);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pricing-trial::before {
+      content: "✓";
+      color: var(--wombite-green-dark);
+      font-weight: 700;
     }
 
     /* Währungs-Toggle */
@@ -348,12 +449,33 @@
       color: #FFF;
     }
 
+    /* Gründerpreis-Callout (grüner Tint) */
+    .founder-note {
+      max-width: 640px;
+      margin: 2.5rem auto 0;
+      padding: 1.25rem 1.5rem;
+      background-color: color-mix(in srgb, var(--wombite-green) 12%, transparent);
+      color: var(--wombite-green-dark);
+      border-radius: 16px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    /* Fallback für Browser ohne color-mix (alt) */
+    @supports not (background: color-mix(in srgb, red, blue)) {
+      .founder-note {
+        background-color: rgba(138, 168, 123, 0.12);
+      }
+    }
+
     .pricing-disclaimer {
       text-align: center;
-      max-width: 560px;
+      max-width: 640px;
       margin: 1rem auto 0;
       color: var(--wombite-muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       line-height: 1.55;
     }
 
@@ -699,57 +821,80 @@
 
       <div class="pricing-grid">
 
-        <div class="price-card">
-          <h3>Kostenlos</h3>
-          <div class="price-sub">Für immer</div>
-          <div class="price-main">0&nbsp;€</div>
-          <div class="price-unit">&nbsp;</div>
-          <div class="price-note">&nbsp;</div>
-          <ul class="price-features">
+        <!-- Karte 1: Kostenlos -->
+        <article class="pricing-card">
+          <header class="pricing-header">
+            <h3>Kostenlos</h3>
+            <p class="pricing-subtitle">Alle Grundfunktionen gratis</p>
+          </header>
+          <div class="pricing-price">
+            <span class="price-main"><span data-price="free">0&nbsp;€</span></span>
+            <span class="price-period">Für immer</span>
+          </div>
+          <ul class="pricing-features">
             <li>Rezepte speichern &amp; bearbeiten</li>
             <li>Kochbücher &amp; Einkaufslisten</li>
             <li>Kochmodus</li>
             <li>Community</li>
             <li>Cloud-Backup &amp; Offline</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="price-card featured">
+        <!-- Karte 2: Wombite+ (Abo) -->
+        <article class="pricing-card pricing-card--featured">
+          <span class="pricing-badge">Beliebt</span>
           <span class="founder-chip">Gründerpreis</span>
-          <h3>Wombite+ Jahr</h3>
-          <div class="price-sub">Alles aus Wombite+ – jährlich abgerechnet</div>
-          <div class="price-main"><span data-price="yearlyFounder">17,99&nbsp;€</span></div>
-          <div class="price-unit">im ersten Jahr</div>
-          <div class="price-note">Regulär <s><span data-price="yearly">24,99&nbsp;€</span></s> · oder <span data-price="monthly">3,99&nbsp;€</span>/Monat</div>
-          <div class="founder-hint">Gültig in den ersten 6 Monaten nach Veröffentlichung. Danach regulärer Preis.</div>
-          <ul class="price-features">
+          <header class="pricing-header">
+            <h3>Wombite+</h3>
+            <p class="pricing-subtitle">Jährlich abgerechnet</p>
+          </header>
+          <div class="pricing-price">
+            <span class="price-main"><span data-price="yearlyFounder">17,99&nbsp;€</span></span>
+            <span class="price-period">im ersten Jahr</span>
+            <span class="price-regular">Danach <s><span data-price="yearlyRegular">24,99&nbsp;€</span></s></span>
+            <span class="price-alt">oder <span data-price="monthly">3,99&nbsp;€</span> pro Monat</span>
+          </div>
+          <ul class="pricing-features">
             <li>Alles aus Kostenlos</li>
             <li>Geteilte Kochbücher &amp; Einkaufslisten</li>
             <li>Unbegrenzter KI-Rezeptimport</li>
             <li>Sync über mehrere Geräte</li>
             <li>Unbegrenzte Kochbücher &amp; Listen</li>
           </ul>
-        </div>
+          <footer class="pricing-footer">
+            <span class="pricing-trial">7 Tage kostenlos testen</span>
+          </footer>
+        </article>
 
-        <div class="price-card">
+        <!-- Karte 3: Wombite+ Lifetime -->
+        <article class="pricing-card">
           <span class="founder-chip">Gründerpreis</span>
-          <h3>Wombite+ Lifetime</h3>
-          <div class="price-sub">Einmal zahlen, für immer nutzen</div>
-          <div class="price-main"><span data-price="lifetimeFounder">69,99&nbsp;€</span></div>
-          <div class="price-unit">einmalig</div>
-          <div class="price-note">Regulär <s><span data-price="lifetime">99,99&nbsp;€</span></s> · keine laufenden Kosten</div>
-          <div class="founder-hint">Gültig in den ersten 6 Monaten nach Veröffentlichung. Danach regulärer Preis.</div>
-          <ul class="price-features">
+          <header class="pricing-header">
+            <h3>Wombite+ Lifetime</h3>
+            <p class="pricing-subtitle">Einmal zahlen, für immer nutzen</p>
+          </header>
+          <div class="pricing-price">
+            <span class="price-main"><span data-price="lifetimeFounder">69,99&nbsp;€</span></span>
+            <span class="price-period">einmalig</span>
+            <span class="price-regular">Regulär <s><span data-price="lifetimeRegular">99,99&nbsp;€</span></s></span>
+          </div>
+          <ul class="pricing-features">
             <li>Alles aus Wombite+</li>
-            <li>Keine monatliche Abrechnung</li>
-            <li>Keine Kündigung nötig</li>
-            <li>Alle zukünftigen Features inklusive</li>
+            <li>Einmalige Zahlung</li>
+            <li>Keine laufenden Kosten</li>
+            <li>Keine Verlängerung, keine Kündigung nötig</li>
           </ul>
-        </div>
+        </article>
 
       </div>
-      <p class="pricing-note">Zum Start gibt's Gründerpreise für die ersten 6 Monate nach Veröffentlichung. Ohne Countdown, ohne Druck – einfach als Dankeschön fürs frühe Dabeisein.</p>
-      <p class="pricing-disclaimer">Tatsächlicher Preis im App Store bzw. bei Google Play kann je nach Region leicht abweichen. Dein lokaler Preis erscheint beim Kauf.</p>
+
+      <aside class="founder-note">
+        Zum Start gibt's Gründerpreise für die ersten 6 Monate nach Veröffentlichung. Ohne Countdown, ohne Druck – einfach als Dankeschön fürs frühe Dabeisein.
+      </aside>
+
+      <p class="pricing-disclaimer">
+        Tatsächlicher Preis im App Store bzw. bei Google Play kann je nach Region leicht abweichen. Dein lokaler Preis erscheint beim Kauf.
+      </p>
     </div>
   </section>
 
@@ -850,25 +995,28 @@
     (function () {
       const prices = {
         EUR: {
+          free: "0\u00A0\u20AC",
           monthly: "3,99\u00A0\u20AC",
-          yearly: "24,99\u00A0\u20AC",
           yearlyFounder: "17,99\u00A0\u20AC",
-          lifetime: "99,99\u00A0\u20AC",
-          lifetimeFounder: "69,99\u00A0\u20AC"
+          yearlyRegular: "24,99\u00A0\u20AC",
+          lifetimeFounder: "69,99\u00A0\u20AC",
+          lifetimeRegular: "99,99\u00A0\u20AC"
         },
         USD: {
+          free: "$0",
           monthly: "$3.99",
-          yearly: "$24.99",
           yearlyFounder: "$17.99",
-          lifetime: "$99.99",
-          lifetimeFounder: "$69.99"
+          yearlyRegular: "$24.99",
+          lifetimeFounder: "$69.99",
+          lifetimeRegular: "$99.99"
         },
         CHF: {
+          free: "0\u00A0CHF",
           monthly: "3.90\u00A0CHF",
-          yearly: "24.90\u00A0CHF",
           yearlyFounder: "17.90\u00A0CHF",
-          lifetime: "99.90\u00A0CHF",
-          lifetimeFounder: "69.90\u00A0CHF"
+          yearlyRegular: "24.90\u00A0CHF",
+          lifetimeFounder: "69.90\u00A0CHF",
+          lifetimeRegular: "99.90\u00A0CHF"
         }
       };
 
