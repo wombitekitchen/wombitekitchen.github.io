@@ -92,10 +92,14 @@
       display: block;
     }
 
+    .hero h1,
+    .hero-slogan {
+      color: var(--wombite-green);
+    }
+
     .hero h1 {
       font-size: clamp(2.4rem, 6vw, 4rem);
       font-weight: 800;
-      color: var(--wombite-green-dark);
       line-height: 1.1;
       margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
@@ -104,7 +108,6 @@
     .hero-slogan {
       font-size: clamp(1.25rem, 3vw, 1.75rem);
       font-weight: 600;
-      color: var(--wombite-green);
       letter-spacing: 0.03em;
       margin-top: 0.25rem;
       margin-bottom: 2rem;
@@ -306,18 +309,18 @@
       z-index: 2;
     }
 
-    /* Gründerpreis-Chip: inline-Block am Anfang der Karte */
+    /* Gründerpreis-Chip: zentriert über dem Preis */
     .founder-chip {
       display: inline-block;
-      align-self: flex-start;
       padding: 4px 12px;
-      margin-bottom: 1rem;
+      margin-bottom: 6px;
       background-color: var(--wombite-green);
       color: #FFF;
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 600;
       border-radius: 999px;
       letter-spacing: 0.02em;
+      align-self: center;
     }
 
     .pricing-header h3 {
@@ -336,8 +339,10 @@
     .pricing-price {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      margin-bottom: 1.5rem;
+      align-items: center;
+      gap: 4px;
+      margin: 1.5rem 0;
+      text-align: center;
     }
 
     .pricing-price .price-main {
@@ -841,12 +846,12 @@
         <!-- Karte 2: Wombite+ (Abo) -->
         <article class="pricing-card pricing-card--featured">
           <span class="pricing-badge">Beliebt</span>
-          <span class="founder-chip">Gründerpreis</span>
           <header class="pricing-header">
             <h3>Wombite+</h3>
             <p class="pricing-subtitle">Jährlich abgerechnet</p>
           </header>
           <div class="pricing-price">
+            <span class="founder-chip">Gründerpreis</span>
             <span class="price-main"><span data-price="yearlyFounder">17,99&nbsp;€</span></span>
             <span class="price-period">im ersten Jahr</span>
             <span class="price-regular">Danach <s><span data-price="yearlyRegular">24,99&nbsp;€</span></s></span>
@@ -866,12 +871,12 @@
 
         <!-- Karte 3: Wombite+ Lifetime -->
         <article class="pricing-card">
-          <span class="founder-chip">Gründerpreis</span>
           <header class="pricing-header">
             <h3>Wombite+ Lifetime</h3>
             <p class="pricing-subtitle">Einmal zahlen, für immer nutzen</p>
           </header>
           <div class="pricing-price">
+            <span class="founder-chip">Gründerpreis</span>
             <span class="price-main"><span data-price="lifetimeFounder">69,99&nbsp;€</span></span>
             <span class="price-period">einmalig</span>
             <span class="price-regular">Regulär <s><span data-price="lifetimeRegular">99,99&nbsp;€</span></s></span>
@@ -954,7 +959,7 @@
 
         <details class="faq-item">
           <summary>Wie erreiche ich den Support?</summary>
-          <div class="faq-answer">Per E-Mail an <a href="mailto:info@wombitekitchen.com" style="color: var(--wombite-green-dark); font-weight: 600;">info@wombitekitchen.com</a>. Antwort kommt von einem Menschen, meist innerhalb eines Werktags.</div>
+          <div class="faq-answer">Per E-Mail an <a href="mailto:info@wombitekitchen.com" style="color: var(--wombite-green-dark); font-weight: 600;">info@wombitekitchen.com</a>. Du bekommst eine persönliche Antwort, meist innerhalb eines Werktags.</div>
         </details>
 
       </div>
@@ -967,10 +972,10 @@
       <h2>Magst du's mal ausprobieren?</h2>
       <p>Wombite Kitchen gibt's kostenlos im App Store und bei Google Play.</p>
       <div class="store-badges">
-        <a href="https://apps.apple.com/app/id6738030818" aria-label="Im App Store laden">
+        <a href="https://apps.apple.com/app/id6738030818" class="store-badge" aria-label="Im App Store laden">
           <img src="badges/app-store-de.svg" alt="Im App Store laden">
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.wombite.kitchen" aria-label="Bei Google Play laden">
+        <a href="https://play.google.com/store/apps/details?id=com.wombite.kitchen" class="store-badge" aria-label="Bei Google Play laden">
           <img src="badges/google-play-de.png" alt="Bei Google Play laden">
         </a>
       </div>
