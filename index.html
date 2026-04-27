@@ -414,6 +414,46 @@
       color: var(--wombite-green-dark);
       font-weight: 700;
     }
+    .pricing-trial--inline {
+      display: inline-flex;
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .pricing-monthly {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin: 0 0 1.25rem;
+      padding: 0.85rem 0.75rem;
+      border-radius: 12px;
+      background: rgba(125, 158, 110, 0.08);
+      border: 1px dashed var(--wombite-green);
+    }
+    .pricing-monthly__label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--wombite-muted);
+    }
+    .pricing-monthly__price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--wombite-green-dark);
+    }
+    .pricing-monthly .pricing-trial {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--wombite-green-dark);
+      background: white;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--wombite-green);
+      margin-top: 0.25rem;
+    }
 
     /* Währungs-Toggle */
     .currency-toggle-wrap {
@@ -855,7 +895,11 @@
             <span class="price-main"><span data-price="yearlyFounder">17,99&nbsp;€</span></span>
             <span class="price-period">im ersten Jahr</span>
             <span class="price-regular">Danach <s><span data-price="yearlyRegular">24,99&nbsp;€</span></s></span>
-            <span class="price-alt">oder <span data-price="monthly">3,99&nbsp;€</span> pro Monat</span>
+          </div>
+          <div class="pricing-monthly">
+            <span class="pricing-monthly__label">Oder monatlich</span>
+            <span class="pricing-monthly__price"><span data-price="monthly">3,99&nbsp;€</span> / Monat</span>
+            <span class="pricing-trial">7 Tage gratis testen</span>
           </div>
           <ul class="pricing-features">
             <li>Alles aus Kostenlos</li>
@@ -864,9 +908,6 @@
             <li>Sync über mehrere Geräte</li>
             <li>Unbegrenzte Kochbücher &amp; Listen</li>
           </ul>
-          <footer class="pricing-footer">
-            <span class="pricing-trial">7 Tage kostenlos testen</span>
-          </footer>
         </article>
 
         <!-- Karte 3: Wombite+ Lifetime -->
@@ -944,7 +985,7 @@
 
         <details class="faq-item">
           <summary>Gibt es eine Testphase für Wombite+?</summary>
-          <div class="faq-answer">Du kannst Wombite Kitchen dauerhaft kostenlos nutzen. Wenn du Wombite+ ausprobieren möchtest, informieren dich App Store und Google Play über mögliche Einführungsangebote direkt beim Kauf.</div>
+          <div class="faq-answer">Beim Monatsabo bekommst du 7 Tage gratis zum Testen – du kannst jederzeit vor Ablauf kündigen, ohne dass etwas abgebucht wird. Beim Jahresabo greift direkt der Gründerpreis ohne separate Testphase. Die App selbst und alle Grundfunktionen bleiben dauerhaft kostenlos.</div>
         </details>
 
         <details class="faq-item">
