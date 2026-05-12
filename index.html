@@ -234,6 +234,54 @@
       line-height: 1.55;
     }
 
+    /* ===== SCREENSHOTS ===== */
+    .screenshots {
+      padding: 4rem 0 3rem;
+    }
+
+    .screenshots-scroll {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem 1.5rem 2rem;
+      margin: 0 -1.5rem;
+      scrollbar-width: thin;
+    }
+
+    .screenshots-scroll::-webkit-scrollbar { height: 8px; }
+    .screenshots-scroll::-webkit-scrollbar-thumb {
+      background: rgba(95, 122, 82, 0.3);
+      border-radius: 999px;
+    }
+
+    .screenshot-item {
+      flex: 0 0 auto;
+      width: 240px;
+      scroll-snap-align: center;
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 22px;
+      box-shadow: 0 8px 24px rgba(43, 43, 43, 0.12);
+      background: #FFF;
+    }
+
+    @media (min-width: 900px) {
+      .screenshots-scroll {
+        justify-content: center;
+        overflow-x: visible;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 1rem 0 1rem;
+      }
+      .screenshot-item { width: 200px; }
+    }
+
     /* ===== WARUM ===== */
     .why {
       padding: 4rem 0;
@@ -823,6 +871,30 @@
           <p>Alles sicher in der Cloud – und trotzdem offline verfügbar, wenn das WLAN mal schwächelt.</p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCREENSHOTS ===== -->
+  <section class="screenshots">
+    <div class="section-inner">
+      <h2 class="section-title">So sieht's aus</h2>
+      <div class="screenshots-scroll">
+        <div class="screenshot-item">
+          <img src="screenshots/import.png" alt="Foto, Link oder PDF – die KI erkennt das Rezept automatisch" loading="lazy">
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots/kochbuecher.png" alt="Eigene Kochbücher mit deinen Rezepten" loading="lazy">
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots/einkaufsliste.png" alt="Einkaufsliste, geteilt mit der Familie" loading="lazy">
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots/kochmodus.png" alt="Kochmodus: Schritt für Schritt mit Timer" loading="lazy">
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots/community.png" alt="Community: Entdecke und teile Rezepte" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
